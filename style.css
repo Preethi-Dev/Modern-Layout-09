@@ -99,6 +99,10 @@ main .title {
   align-items: center;
 }
 
+main .welcome {
+  gap: 0.5rem;
+}
+
 /* Small Tablet Styles */
 @media screen and (min-width: 690px) {
   .grid {
@@ -108,6 +112,7 @@ main .title {
   main .welcome {
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 0;
   }
 
   main .welcome p:nth-child(1) {
