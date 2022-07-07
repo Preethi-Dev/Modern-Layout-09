@@ -1,5 +1,159 @@
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
 /* Fonts */
+@font-face {
+  font-family: "CHANEY";
+  src: url(./assets/fonts/CHANEY-UltraExtended.otf);
+}
+
 /* Variables */
+:root {
+  --primary: #1c1c1c;
+  --bg: #fff8f3;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+header nav a,
+main .welcome p,
+main .title > h1,
+p {
+  font-family: "CHANEY";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1.875rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 1.875rem;
+}
+
+main .welcome > p {
+  width: min-content;
+}
+
+main .title > p {
+  max-width: 600px;
+}
+
 /* Mobile Styles */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 1rem;
+  place-items: center;
+}
+
+main > * {
+  grid-column: 1 / -1;
+}
+
+main .title {
+  padding: 0 1.875rem;
+}
+
+main .title h1 {
+  font-size: 2rem;
+}
+
+main .title > * + * {
+  margin-top: 1rem;
+}
+
+main .welcome,
+main .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Small Tablet Styles */
+@media screen and (min-width: 690px) {
+  .grid {
+    place-items: stretch;
+  }
+
+  main .welcome {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  main .welcome p:nth-child(1) {
+    text-align: right;
+  }
+
+  main .welcome p:last-child {
+    text-align: left;
+  }
+
+  main > * {
+    grid-row: 1;
+  }
+
+  main .title {
+    justify-self: center;
+    align-self: end;
+  }
+
+  main .title h1 {
+    font-size: 4rem;
+  }
+}
+
+/* Large Tablet and Laptop Styles */
+@media screen and (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  main > * {
+    grid-column: 2 / span 6;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  main > * {
+    grid-column: 3 / span 8;
+  }
+
+  main .title h1 {
+    font-size: 6rem;
+  }
+}
